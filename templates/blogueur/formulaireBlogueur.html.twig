@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} - ajout Blogueur
+{% endblock %}
+
+{% block content %}
+
+
+
+{#{% if app.request.get('_route') == 'ajout_blogueur' %}
+    <h2>Insertion d'un Article</h2>
+
+{% else %}    
+
+    <h2>Modification de l'article {{ article.id }}
+    </h2>
+{% endif %} #}
+    {{ form(formBlogueur) }}
+    
+{% endblock %}

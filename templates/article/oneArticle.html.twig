@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} - Article {{ article.id }}
+{% endblock %}
+
+{% block content %}
+    <div class="show-article">
+            
+               <h2>{{ article.titre }}</h2>
+                <h3>le blogue</h3>
+                <h4><strong>nom et prenom : </strong>
+                    {% if article.blogueur is not empty %}
+                        {{ article.blogueur.prenom ~ ' ' ~ article.blogueur.nom }}
+
+                    {% else %}
+                         Anonymous
+                    {% endif %}
+                </h4>
+                <h4>{{ article.dateDeCreation | date("d-m-y \à H\\hi") }}</h4>
+                <p>{{ article.contenu }}</p>
+                
+    </div>
+    
+{% endblock %}

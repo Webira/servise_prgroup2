@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} - ajout Article 
+{% endblock %}
+
+{% block content %}
+
+{# on met une consition pour savoir quel h2 afficher, 
+on compare la route actuelle avec 'article_ajout',
+si c'est la même on affiche insertion sinon dans tout autre cas c'est modification #}
+
+{% if app.request.get('_route') == 'article_ajout' %}
+    <h2>Insertion d'un Article</h2>
+
+{% else %}    
+
+    <h2>Modification de l'article {{ article.id }}
+    </h2>
+{% endif %}
+    {{ form(formArticle) }}
+    
+{% endblock %}

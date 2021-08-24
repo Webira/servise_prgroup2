@@ -1,3 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+test: # le name de le route
+  path: /test # la route ette meme
+  controller: App\Controller\TestController::index  # la méthode à executer et de quel controller,
+#  la c'est la méthode index() du controller TestController

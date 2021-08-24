@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello BlogueurController!{% endblock %}
+
+{% block content %}
+
+<h3><a href="{{ path('ajout_blogueur') }}">Ajouter un Blogueur</a></h3>
+    <div class="row d-flex justify-content-center text-center">
+
+    <div>
+        <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                    
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Description</th>
+                    <th colspan="2">Actions</th>
+                    
+                    </tr>
+                </thead>
+
+                <tbody>
+            {% for blogueur in blogueurs %}    
+                    <tr>
+                    
+                    <td>{{ blogueur.prenom }}</td>
+                    <td>{{ blogueur.nom }}</td>
+                    <td>{{ blogueur.deteDeNaissance | date("d-m-Y")}}</td>
+                    <td>{{ blogueur.description | slice(0,20) }}...
+                        <a href="{{ path('blogueur', {id: blogueur.id} )}}">
+                        lire la suite</a></td>
+                    <td><a href="{{ path('blogueur_update', {id:blogueur.id}) }}" 
+                        class="card-link btn btn-outline-primary">Modifier</a></td> 
+                    <td><a href="{{ path('blogueur_delete', {id:blogueur.id}) }}" 
+                        class="card-link btn btn-outline-primary">Supprimer</a></td>
+                    
+                    </tr>
+             {% endfor %}   
+                </tbody>
+         </table>
+    </div>
+    
+
+
+
+
+
+
+
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1> 
+</div> #}
+
+{% endblock %}

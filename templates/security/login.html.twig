@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Veuillez vous connecter</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" 
+        class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" 
+        autocomplete="current-password" required>
+    <input type="checkbox" id="show_password">Show Password 
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall
+         to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+    <div class="text-center m-1">
+        <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
+    </div>
+    </form>
+
+    <script>
+        document.getElementById("show_password").addEventListener("click", function(){
+
+        var pw = document.getElementById("inputPassword");
+        if (pw.type == "password") {
+            pw.type = "text";
+        } else {
+            pw.type = "password";
+        }
+
+        });
+    </script>
+{% endblock %}
+
+        {# De Willka PEREIRA , Boutone (GLAZ) pour regarder mot pass
+
+    <div class="row">   
+      <input type="password" name="password" id="inputPassword" class="col-md-11 form-control" 
+             autocomplete="current-password" required>  
+         <button id="show_password" type="button" class="btn btn-outline-primary"> 
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-eye-fill" viewBox="0 0 16 16">  
+         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path> 
+         <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path></svg>
+         <span class="visually-hidden">show</span>
+        </button>
+    </div> #}
