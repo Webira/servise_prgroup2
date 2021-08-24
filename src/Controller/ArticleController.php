@@ -67,6 +67,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    
 
     /**
      * @Route("/article_update_{id<\d+>}", name="article_update")

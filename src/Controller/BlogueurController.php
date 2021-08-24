@@ -26,6 +26,7 @@ class BlogueurController extends AbstractController
             // 'controller_name' => 'BlogueurController',
         ]);
     }
+    
     /**
      * @Route("/blogueur_{id<\d+>}", name ="blogueur")
      */
@@ -36,6 +37,7 @@ class BlogueurController extends AbstractController
             "blogueur" => $blogueur
         ]);
     }
+
     /**
      * @Route("/ajout_blogueur",name="ajout_blogueur")
      */

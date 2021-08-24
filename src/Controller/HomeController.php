@@ -23,6 +23,7 @@ class HomeController extends AbstractController
          //et le deuxieme indique par ordre de quoi (dateDeCreation) et le sens ("DESC").
 
         //dd($article);
+        
 
         return $this->render('home/accueil.html.twig', [
             "article"=> $article
